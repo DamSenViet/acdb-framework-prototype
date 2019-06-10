@@ -2,22 +2,51 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
-	<script src="/src/Component.js"></script>
-	<script src="/src/MyComponent.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/src/Component.js"></script>
+  <script src="/src/MyComponent.js"></script>
+  <script src="/src/OuterComponent.js"></script>
+  <script src="/src/InnerComponent.js"></script>
+  <script src="/src/App.js"></script>
 </head>
 
 <body>
+  <div class="somewhere-else">
+  </div>
 
+  <!-- also an option -->
+  <div class="static-my-component">
+    <div class="first"></div>
+    <div class="last"></div>
+  </div>
 
-<!-- collect all templates at bottom of the page with php -->
-<template id="my-component">
-	<div class="first"></div>
-	<div class="last"></div>
-</template>
+  <!-- collect all templates at bottom of the page with php -->
+  <template id="my-component">
+    <!-- container element required to keep track -->
+    <div class="my-component">
+      <div class="first"></div>
+      <div class="last"></div>
+    </div>
+  </template>
+
+  <!-- nested components demo -->
+  <!-- can't nest templates, undefined behavior -->
+  <template id="outer-component">
+    <div class="outer-component">
+      I am outer
+    </div>
+  </template>
+  <template id="inner-component">
+    <div class="inner-component">
+      I am inner
+    </div>
+  </template>
+
 </body>
 <script src="/script.js"></script>
+
 </html>
